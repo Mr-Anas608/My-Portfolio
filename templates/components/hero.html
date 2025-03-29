@@ -1,0 +1,237 @@
+<!-- Enhanced Hero Section with Advanced Web Animations -->
+<!-- Particles Background with improved density -->
+<div id="particles-js" class="absolute inset-0 z-0 opacity-60 dark:opacity-40"></div>
+
+<!-- Web Grid Overlay - New Feature -->
+<div class="absolute inset-0 z-0 web-grid-overlay pointer-events-none">
+    <div class="web-grid"></div>
+    <div class="web-grid-pulse"></div>
+</div>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- For Mobile: Spider at top, text below -->
+    <div class="flex flex-col md:flex-row lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-8 md:pt-0">
+        <!-- Hero Image For Mobile Only -->
+        <div class="flex justify-center md:hidden" data-aos="fade-down" data-aos-delay="200">
+            <div class="relative mb-4">
+                <!-- Enhanced Spider Web Background Effect for Mobile -->
+                <div class="spider-web-container" style="scale: 0.7;">
+                    <div class="web-strand"></div>
+                    <div class="web-strand"></div>
+                    <div class="web-strand"></div>
+                    <!-- Additional web strands for mobile -->
+                    <div class="web-strand" style="height: 45%; top: 15%; left: 45%; transform: rotate(20deg); animation-delay: 1.5s;"></div>
+                    <div class="web-strand" style="height: 35%; top: 30%; left: 20%; transform: rotate(-15deg); animation-delay: 3s;"></div>
+                </div>
+                
+                <!-- Improved Spider Bot Animation with Enhanced Effects -->
+                <div class="spider-bot w-40 h-40 mx-auto relative">
+                    <!-- Spider Scanner Pulse Effect - New Feature -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="w-16 h-16 rounded-full border-2 border-primary-400 opacity-0" style="animation: scanPulse 3s infinite;"></div>
+                    </div>
+                    
+                    <svg width="160" height="160" viewBox="0 0 24 24" class="spider-svg">
+                        <!-- Main Spider Body with Improved Styling -->
+                        <circle cx="12" cy="12" r="6" class="spider-body" filter="url(#spider-glow)" />
+                        
+                        <!-- Spider Face/Eyes with Enhanced Animation -->
+                        <circle cx="10" cy="10" r="1.2" class="spider-eye" style="animation: pulseScale 1.5s infinite;" />
+                        <circle cx="14" cy="10" r="1.2" class="spider-eye" style="animation: pulseScale 1.5s infinite 0.2s;" />
+                        
+                        <!-- Improved Speech Bubble with Dynamic Greeting -->
+                        <g class="speech-bubble" style="opacity: 0; transition: opacity 0.5s ease;">
+                            <path d="M18,7 Q20,7 20,5 L20,2 Q20,0 18,0 L10,0 Q8,0 8,2 L8,5 Q8,7 10,7 L12,7 L12,10 L15,7 Z" 
+                                  transform="translate(0, -2) scale(0.8)" 
+                                  fill="#4FD1C5" 
+                                  opacity="0.9" />
+                            <text x="14" y="3.5" text-anchor="middle" font-size="2.5" font-weight="bold" fill="white" class="greeting-text">Hello!</text>
+                        </g>
+                        
+                        <!-- Improved Spider Antenna Animation -->
+                        <path d="M10,7 Q12,4 14,7" class="spider-antenna" stroke-width="0.8" fill="none" 
+                              style="animation: antennaWiggle 3s ease-in-out infinite;" />
+                        
+                        <!-- Spider Legs - Left side with Enhanced Animation -->
+                        <path d="M6,10 Q4,8 2,9" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite;" />
+                        <path d="M6,12 Q3,12 1,13" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.3s;" />
+                        <path d="M6,14 Q4,16 2,17" class="spider-leg" stroke-width="0.8" fill="none" 
+                              style="animation: legWiggle 2s ease-in-out infinite 0.6s;" />
+                        
+                        <!-- Spider Legs - Right side with Enhanced Animation -->
+                        <path d="M18,10 Q20,8 22,9" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.2s;" />
+                        <path d="M18,12 Q21,12 23,13" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.5s;" />
+                        <path d="M18,14 Q20,16 22,17" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.8s;" />
+                        
+                        <!-- SVG Filters for Glow Effects - New Feature -->
+                        <defs>
+                            <filter id="spider-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                <feFlood flood-color="#4FD1C5" flood-opacity="0.3" result="glow-color" />
+                                <feComposite in="glow-color" in2="blur" operator="in" result="soft-glow" />
+                                <feMerge>
+                                    <feMergeNode in="soft-glow" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Content with Enhanced Typography and Animation -->
+        <div data-aos="fade-right" data-aos-delay="200">
+            <div class="relative mb-2">
+                <span class="inline-block py-1 px-3 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
+                    Web Data Specialist
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 text-secondary-900 dark:text-white leading-tight">
+                Data Extraction <span class="text-primary-600 dark:text-primary-400 relative inline-block">
+                    Expert
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary-400 dark:bg-primary-600 rounded-full transform origin-left" style="animation: titleUnderline 1.5s cubic-bezier(0.19, 1, 0.22, 1) 1s both;"></span>
+                </span>
+            </h1>
+            <div id="typewriter-container" class="text-xl md:text-2xl text-secondary-700 dark:text-secondary-300 mb-8 h-auto min-h-[70px]">
+                <span id="typewriter-text" class="leading-relaxed">Transforming unstructured web data into valuable business insights.</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="#contact" class="btn-primary group">
+                    <span>Get in Touch</span>
+                    <span class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                </a>
+                <a href="#portfolio" class="btn-secondary group">
+                    <span>View My Work</span>
+                    <span class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                </a>
+            </div>
+            
+            <!-- Floating Data Points - New Feature -->
+            <div class="absolute -top-10 -left-10 w-6 h-6 rounded-full bg-primary-400/30 dark:bg-primary-600/30 animate-float" style="animation-duration: 7s;"></div>
+            <div class="absolute -bottom-14 -right-10 w-4 h-4 rounded-full bg-primary-500/40 dark:bg-primary-500/40 animate-float" style="animation-duration: 5s; animation-delay: 1s;"></div>
+        </div>
+
+        <!-- Hero Image/Animation - Hidden on Mobile, Visible on tablet+ -->
+        <div class="hidden md:flex justify-center lg:block" data-aos="fade-left" data-aos-delay="400">
+            <div class="relative">
+                <!-- Enhanced Spider Web Background Effect -->
+                <div class="spider-web-container">
+                    <div class="web-strand"></div>
+                    <div class="web-strand"></div>
+                    <div class="web-strand"></div>
+                    <div class="web-strand"></div>
+                    <!-- Additional web strands for a more complex web -->
+                    <div class="web-strand" style="height: 60%; top: 10%; left: 45%; transform: rotate(20deg); animation-delay: 1.5s;"></div>
+                    <div class="web-strand" style="height: 50%; top: 30%; left: 20%; transform: rotate(-15deg); animation-delay: 3s;"></div>
+                    <div class="web-strand" style="height: 40%; top: 45%; left: 70%; transform: rotate(35deg); animation-delay: 4.5s;"></div>
+                </div>
+                
+                <!-- Improved Spider Bot Animation -->
+                <div class="spider-bot md:max-w-sm lg:max-w-full relative">
+                    <!-- Spider Scanner Pulse Effect - New Feature -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="w-32 h-32 rounded-full border-2 border-primary-400 opacity-0" style="animation: scanPulse 3s infinite;"></div>
+                    </div>
+                    
+                    <!-- Interactive Spider Animation -->
+                    <svg width="300" height="300" viewBox="0 0 24 24" class="spider-svg lg:w-[400px] lg:h-[400px]">
+                        <!-- Main Spider Body with Improved Styling -->
+                        <circle cx="12" cy="12" r="6" class="spider-body" filter="url(#spider-glow-lg)" />
+                        
+                        <!-- Spider Face/Eyes with Enhanced Animation -->
+                        <circle cx="10" cy="10" r="1.2" class="spider-eye" style="animation: pulseScale 1.5s infinite;" />
+                        <circle cx="14" cy="10" r="1.2" class="spider-eye" style="animation: pulseScale 1.5s infinite 0.2s;" />
+                        
+                        <!-- Improved Speech Bubble with Dynamic Greeting -->
+                        <g class="speech-bubble" style="opacity: 0; transition: opacity 0.5s ease;">
+                            <path d="M18,7 Q20,7 20,5 L20,2 Q20,0 18,0 L10,0 Q8,0 8,2 L8,5 Q8,7 10,7 L12,7 L12,10 L15,7 Z" 
+                                  transform="translate(0, -2) scale(0.8)" 
+                                  fill="#4FD1C5" 
+                                  opacity="0.9" />
+                            <text x="14" y="3.5" text-anchor="middle" font-size="2.5" font-weight="bold" fill="white" class="greeting-text">Hello!</text>
+                        </g>
+                        
+                        <!-- Improved Spider Antenna Animation -->
+                        <path d="M10,7 Q12,4 14,7" class="spider-antenna" stroke-width="0.8" fill="none" 
+                              style="animation: antennaWiggle 3s ease-in-out infinite;" />
+                        
+                        <!-- Spider Legs with Enhanced Animation -->
+                        <path d="M6,10 Q4,8 2,9" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite;" />
+                        <path d="M6,12 Q3,12 1,13" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.3s;" />
+                        <path d="M6,14 Q4,16 2,17" class="spider-leg" stroke-width="0.8" fill="none" 
+                              style="animation: legWiggle 2s ease-in-out infinite 0.6s;" />
+                        
+                        <path d="M18,10 Q20,8 22,9" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.2s;" />
+                        <path d="M18,12 Q21,12 23,13" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.5s;" />
+                        <path d="M18,14 Q20,16 22,17" class="spider-leg" stroke-width="0.8" fill="none"
+                              style="animation: legWiggle 2s ease-in-out infinite 0.8s;" />
+                        
+                        <!-- SVG Filters for Glow Effects - New Feature -->
+                        <defs>
+                            <filter id="spider-glow-lg" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="2" result="blur" />
+                                <feFlood flood-color="#4FD1C5" flood-opacity="0.4" result="glow-color" />
+                                <feComposite in="glow-color" in2="blur" operator="in" result="soft-glow" />
+                                <feMerge>
+                                    <feMergeNode in="soft-glow" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
+                
+                <!-- Enhanced Web Connection Lines -->
+                <div class="web-lines hidden lg:block">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                    <!-- Additional data lines -->
+                    <div class="line" style="top: 25%; left: 40%; width: 120px; height: 1px; transform: rotate(65deg); animation: pulse 3s infinite 1.5s;"></div>
+                    <div class="line" style="top: 65%; left: 60%; width: 100px; height: 1px; transform: rotate(-35deg); animation: pulse 3s infinite 2.5s;"></div>
+                    
+                    <!-- Animated Data Points -->
+                    <div class="data-point data-point-1"></div>
+                    <div class="data-point data-point-2"></div>
+                    <div class="data-point data-point-3"></div>
+                    <!-- Additional data points -->
+                    <div class="data-point" style="top: 35%; left: 25%; animation-delay: 1.5s;"></div>
+                    <div class="data-point" style="top: 55%; left: 75%; animation-delay: 3.5s;"></div>
+                </div>
+                
+                <!-- Enhanced Data Flow Visualization -->
+                <div class="absolute inset-0 overflow-hidden hidden lg:block pointer-events-none">
+                    <div class="data-flow-particle" style="--delay: 0s;"></div>
+                    <div class="data-flow-particle" style="--delay: 2s;"></div>
+                    <div class="data-flow-particle" style="--delay: 4s;"></div>
+                    <div class="data-flow-particle" style="--delay: 6s;"></div>
+                    <div class="data-flow-particle" style="--delay: 8s;"></div>
+                    <!-- Additional data particles for denser effect -->
+                    <div class="data-flow-particle" style="--delay: 1s;"></div>
+                    <div class="data-flow-particle" style="--delay: 3s;"></div>
+                    <div class="data-flow-particle" style="--delay: 5s;"></div>
+                    <div class="data-flow-particle" style="--delay: 7s;"></div>
+                    <div class="data-flow-particle" style="--delay: 9s;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Improved Scroll Indicator with Better Positioning -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 bg-white/70 dark:bg-secondary-900/70 p-2 rounded-full backdrop-blur-sm" style="bottom: max(20px, 5vh);">
+        <span class="text-secondary-600 dark:text-secondary-400 text-xs md:text-sm mb-1">Scroll Down</span>
+        <div class="scroll-indicator">
+            <div class="scroll-indicator-dot"></div>
+        </div>
+    </div>
+</div>

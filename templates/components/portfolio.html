@@ -1,0 +1,46 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4 text-secondary-900 dark:text-white">
+            Recent <span class="text-primary-600 dark:text-primary-400">Projects</span>
+        </h2>
+        <p class="text-lg text-secondary-700 dark:text-secondary-300 max-w-2xl mx-auto">
+            Explore a selection of my recent web scraping and data extraction projects
+        </p>
+    </div>
+
+    <!-- Portfolio Filter -->
+    <div class="flex flex-wrap justify-center mb-12" data-aos="fade-up">
+        <div id="portfolio-filter" class="flex flex-wrap justify-center gap-2">
+            {% for category in portfolio_categories %}
+            <button class="portfolio-filter-btn {% if category.id == 'all' %}active{% endif %}" 
+                    data-filter="{{ category.id }}">
+                {{ category.name }}
+            </button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for item in portfolio_items %}
+        <div class="portfolio-item {{ item.category }}" data-aos="fade-up" data-aos-delay="{{ (loop.index0 % 3) * 100 }}">
+            <div class="bg-white dark:bg-secondary-800 rounded-lg overflow-hidden shadow-custom dark:shadow-custom-dark transform hover:-translate-y-1 transition-all duration-300">
+                <div class="relative overflow-hidden h-48">
+                    <img src="{{ item.image }}" alt="{{ item.title }}" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-secondary-900 dark:text-white">{{ item.title }}</h3>
+                    <p class="text-secondary-700 dark:text-secondary-300 mb-4">{{ item.description }}</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% for tag in item.tags %}
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200 px-2 py-1 rounded-md text-xs">
+                            {{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

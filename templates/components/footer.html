@@ -1,0 +1,83 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Logo and Description -->
+        <div class="col-span-1 lg:col-span-2">
+            <div class="flex items-center mb-4">
+                <div class="mr-3 logo-container">
+                    <svg width="40" height="40" viewBox="0 0 24 24" class="spider-logo">
+                        <!-- Main Spider Body -->
+                        <circle cx="12" cy="12" r="6" class="spider-body" />
+                        
+                        <!-- Spider Face/Eyes -->
+                        <circle cx="10" cy="10" r="1.2" class="spider-eye" />
+                        <circle cx="14" cy="10" r="1.2" class="spider-eye" />
+                        
+                        <!-- Spider Antenna -->
+                        <path d="M10,7 Q12,4 14,7" class="spider-antenna" stroke-width="0.8" fill="none" />
+                        
+                        <!-- Spider Legs - Left side -->
+                        <path d="M6,10 Q4,8 2,9" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M6,12 Q3,12 1,13" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M6,14 Q4,16 2,17" class="spider-leg" stroke-width="0.8" fill="none" />
+                        
+                        <!-- Spider Legs - Right side -->
+                        <path d="M18,10 Q20,8 22,9" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M18,12 Q21,12 23,13" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M18,14 Q20,16 22,17" class="spider-leg" stroke-width="0.8" fill="none" />
+                    </svg>
+                </div>
+                <span class="text-lg font-bold text-primary-600 dark:text-primary-400">WebScrapeWizard</span>
+            </div>
+            <p class="text-sm mb-4 max-w-lg">
+                I deliver custom data extraction solutions tailored to your specific needs. From social media insights to e-commerce intelligence, I transform unstructured web data into actionable business insights.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-secondary-600 hover:text-primary-500 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-secondary-600 hover:text-primary-500 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="text-secondary-600 hover:text-primary-500 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+                <li><a href="#services" class="footer-link">Services</a></li>
+                <li><a href="#portfolio" class="footer-link">Portfolio</a></li>
+                <li><a href="#process" class="footer-link">Process</a></li>
+                <li><a href="#datasets" class="footer-link">Datasets</a></li>
+                <li><a href="#testimonials" class="footer-link">Testimonials</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+            <ul class="space-y-2">
+                <li class="flex items-start">
+                    <i class="fas fa-envelope mt-1 mr-3 text-primary-500"></i>
+                    <span>contact@example.com</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-phone-alt mt-1 mr-3 text-primary-500"></i>
+                    <span>+1 (555) 123-4567</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-500"></i>
+                    <span>123 Data Street, Web City</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-12 pt-8 border-t border-secondary-200 dark:border-secondary-700 text-center">
+        <p class="text-sm">&copy; {{ now.year }} Anas - Web Scraping Specialist. All rights reserved.</p>
+    </div>
+</div>

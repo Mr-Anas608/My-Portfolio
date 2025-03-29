@@ -1,0 +1,53 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4 text-secondary-900 dark:text-white">
+            My <span class="text-primary-600 dark:text-primary-400">Process</span>
+        </h2>
+        <p class="text-lg text-secondary-700 dark:text-secondary-300 max-w-2xl mx-auto">
+            A systematic approach to delivering high-quality web scraping solutions
+        </p>
+    </div>
+
+    <div class="relative">
+        <!-- Process Steps Timeline -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-primary-200 dark:bg-primary-800 hidden lg:block"></div>
+
+        <div class="space-y-12 lg:space-y-0">
+            {% for step in process_steps %}
+            <div class="flex flex-col {% if step.position == 'left' %}lg:flex-row-reverse{% else %}lg:flex-row{% endif %} items-center">
+                <!-- Content Box -->
+                <div class="w-full lg:w-1/2 {% if step.position == 'left' %}lg:pl-12{% else %}lg:pr-12{% endif %} mb-8 lg:mb-0"
+                     data-aos="{% if step.position == 'left' %}fade-left{% else %}fade-right{% endif %}">
+                    <div class="bg-white dark:bg-secondary-800 rounded-lg shadow-custom dark:shadow-custom-dark p-8">
+                        <div class="text-primary-500 mb-4">
+                            <!-- Dynamically render the icon based on the icon name -->
+                            {% if step.icon == "ClipboardList" %}
+                                <i class="fas fa-clipboard-list text-3xl"></i>
+                            {% elif step.icon == "Code" %}
+                                <i class="fas fa-code text-3xl"></i>
+                            {% elif step.icon == "Filter" %}
+                                <i class="fas fa-filter text-3xl"></i>
+                            {% elif step.icon == "BarChart" %}
+                                <i class="fas fa-chart-bar text-3xl"></i>
+                            {% else %}
+                                <i class="fas fa-cogs text-3xl"></i>
+                            {% endif %}
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-secondary-900 dark:text-white">{{ step.title }}</h3>
+                        <p class="text-secondary-700 dark:text-secondary-300">{{ step.description }}</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Circle -->
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500 text-white border-4 border-white dark:border-secondary-800 z-10 relative" 
+                     data-aos="zoom-in" data-aos-delay="200">
+                    <span class="text-lg font-bold">{{ step.id }}</span>
+                </div>
+
+                <!-- Spacer for Right Side -->
+                <div class="hidden lg:block lg:w-1/2"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

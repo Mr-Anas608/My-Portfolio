@@ -1,0 +1,260 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4 text-secondary-900 dark:text-white">
+            Ready-to-Use <span class="text-primary-600 dark:text-primary-400">Datasets</span>
+        </h2>
+        <p class="text-lg text-secondary-700 dark:text-secondary-300 max-w-2xl mx-auto">
+            Pre-scraped and cleaned datasets available for immediate purchase and download
+        </p>
+    </div>
+
+    <!-- Dataset Carousel -->
+    <div class="dataset-carousel-container relative max-w-7xl mx-auto" data-aos="fade-up">
+        <!-- Datasets Slider -->
+        <div class="dataset-carousel overflow-hidden rounded-xl">
+            <div class="dataset-track flex transition-transform duration-500">
+                {% for dataset in datasets %}
+                <div class="dataset-slide">
+                    <div class="mx-2 bg-white dark:bg-secondary-800 rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden h-full">
+                        <div class="relative">
+                            <img src="{{ dataset.image }}" alt="{{ dataset.title }}" class="w-full h-48 object-cover">
+                            
+                            {% if dataset.bestSeller %}
+                            <div class="absolute top-0 right-0 bg-primary-500 text-white text-xs font-bold px-3 py-1">
+                                BEST SELLER
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-3 text-secondary-900 dark:text-white">{{ dataset.title }}</h3>
+                            <p class="text-secondary-700 dark:text-secondary-300 mb-5 line-clamp-3">{{ dataset.description }}</p>
+                            
+                            <div class="flex justify-between items-center mb-5">
+                                <div class="flex items-center">
+                                    <i class="fas fa-database text-primary-500 mr-2"></i>
+                                    <span class="text-sm text-secondary-700 dark:text-secondary-300">{{ dataset.records }}</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-sync-alt text-primary-500 mr-2"></i>
+                                    <span class="text-sm text-secondary-700 dark:text-secondary-300">{{ dataset.updates }}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">${{ dataset.price }}</span>
+                                <button class="btn-primary btn-sm">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="dataset-prev absolute top-1/2 -left-5 transform -translate-y-1/2 bg-white dark:bg-secondary-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10 hover:bg-primary-50 dark:hover:bg-secondary-700 transition-colors">
+            <i class="fas fa-chevron-left text-primary-600 dark:text-primary-400"></i>
+        </button>
+        <button class="dataset-next absolute top-1/2 -right-5 transform -translate-y-1/2 bg-white dark:bg-secondary-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10 hover:bg-primary-50 dark:hover:bg-secondary-700 transition-colors">
+            <i class="fas fa-chevron-right text-primary-600 dark:text-primary-400"></i>
+        </button>
+        
+        <!-- Indicator Dots -->
+        <div class="dataset-dots flex justify-center mt-8 space-x-2">
+            {% for dataset in datasets %}
+            <button class="dataset-dot w-3 h-3 rounded-full bg-secondary-300 dark:bg-secondary-600 hover:bg-primary-500 dark:hover:bg-primary-500 transition-colors {% if loop.index0 == 0 %}active bg-primary-500 dark:bg-primary-500{% endif %}" data-index="{{ loop.index0 }}"></button>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Add Dataset Carousel JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    setupDatasetCarousel();
+});
+
+function setupDatasetCarousel() {
+    const carousel = document.querySelector('.dataset-carousel');
+    if (!carousel) return;
+    
+    const track = carousel.querySelector('.dataset-track');
+    const slides = track.querySelectorAll('.dataset-slide');
+    const prevBtn = document.querySelector('.dataset-prev');
+    const nextBtn = document.querySelector('.dataset-next');
+    const dots = document.querySelectorAll('.dataset-dot');
+    
+    if (!track || slides.length === 0) return;
+    
+    let currentIndex = 0;
+    let slideWidth;
+    let autoplayInterval;
+    let slidesToShow = 1; // Default to 1 slide
+    
+    // Responsive settings based on screen width
+    function getResponsiveSettings() {
+        if (window.innerWidth >= 1200) {
+            return 4; // Large screens: 4 slides
+        } else if (window.innerWidth >= 992) {
+            return 3; // Medium-large screens: 3 slides
+        } else if (window.innerWidth >= 768) {
+            return 2; // Medium screens: 2 slides
+        } else {
+            return 1; // Small screens: 1 slide
+        }
+    }
+    
+    // Initialize carousel
+    function initCarousel() {
+        // Update slides to show based on current screen size
+        slidesToShow = getResponsiveSettings();
+        
+        // Calculate the full width of a single slide
+        slideWidth = carousel.clientWidth / slidesToShow;
+        
+        // Set slide widths precisely to prevent partial slides
+        slides.forEach(slide => {
+            // Make sure each slide takes exactly the right amount of space
+            slide.style.minWidth = `${slideWidth}px`;
+            slide.style.width = `${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+            // Fixed height for consistency
+            slide.style.height = 'auto';
+            // Add some padding for spacing
+            slide.style.boxSizing = 'border-box';
+            slide.style.padding = '0 8px';
+        });
+        
+        // Update active slide position
+        updateActiveSlide();
+        
+        // Set up autoplay
+        startAutoplay();
+    }
+    
+    // Update active slide
+    function updateActiveSlide() {
+        // Calculate precise position
+        track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+            if (i === currentIndex) {
+                dot.classList.add('bg-primary-500');
+                dot.classList.add('dark:bg-primary-500');
+            } else {
+                dot.classList.remove('bg-primary-500');
+                dot.classList.remove('dark:bg-primary-500');
+            }
+        });
+    }
+    
+    // Go to specific slide with infinite loop effect
+    function goToSlide(index) {
+        // Handle bounds based on slidesToShow
+        const maxIndex = slides.length - slidesToShow;
+        
+        if (index < 0) {
+            // When going backwards from first slide
+            currentIndex = maxIndex;
+        } else if (index > maxIndex) {
+            // When going forward from last slide
+            currentIndex = 0;
+            
+            // Optional: Create visual continuity by briefly showing a transition
+            track.style.transition = 'none';
+            track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+            
+            // Force a reflow to make the transition reset take effect
+            void track.offsetWidth;
+            
+            // Restore the transition
+            track.style.transition = 'transform 0.5s ease-in-out';
+        } else {
+            currentIndex = index;
+        }
+        
+        updateActiveSlide();
+        resetAutoplay();
+    }
+    
+    // Start autoplay
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayInterval = setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, 5000);
+    }
+    
+    // Stop autoplay
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+        }
+    }
+    
+    // Reset autoplay (for user interactions)
+    function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+    
+    // Add event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+        });
+    }
+    
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            goToSlide(i);
+        });
+    });
+    
+    // Pause autoplay on hover
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        initCarousel();
+    });
+    
+    // Initialize the carousel
+    initCarousel();
+    
+    // Add swiping capability for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const threshold = 50; // Minimum swipe distance
+        if (touchStartX - touchEndX > threshold) {
+            // Swipe left, go to next slide
+            goToSlide(currentIndex + 1);
+        } else if (touchEndX - touchStartX > threshold) {
+            // Swipe right, go to previous slide
+            goToSlide(currentIndex - 1);
+        }
+    }
+}
+</script>

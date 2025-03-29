@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-white to-secondary-50 dark:from-secondary-900 dark:to-secondary-800">
+        {% include 'components/hero.html' %}
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white dark:bg-secondary-900">
+        {% include 'components/services.html' %}
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 bg-primary-50 dark:bg-secondary-800">
+        {% include 'components/stats.html' %}
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-white dark:bg-secondary-900">
+        {% include 'components/portfolio.html' %}
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-secondary-50 dark:bg-secondary-800">
+        {% include 'components/process.html' %}
+    </section>
+
+    <!-- Code Showcase Section -->
+    <section id="code-showcase" class="py-24 bg-white dark:bg-secondary-900">
+        {% include 'components/code_showcase.html' %}
+    </section>
+
+    <!-- Datasets Section -->
+    <section id="datasets" class="py-24 bg-secondary-50 dark:bg-secondary-800">
+        {% include 'components/datasets.html' %}
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-white dark:bg-secondary-900">
+        {% include 'components/testimonials.html' %}
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-primary-50 dark:bg-secondary-800">
+        {% include 'components/contact.html' %}
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out'
+            });
+        });
+    </script>
+{% endblock %}

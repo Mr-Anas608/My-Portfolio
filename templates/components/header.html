@@ -1,0 +1,101 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="logo-container">
+                    <svg width="40" height="40" viewBox="0 0 24 24" class="spider-logo">
+                        <!-- Main Spider Body -->
+                        <circle cx="12" cy="12" r="6" class="spider-body" />
+                        
+                        <!-- Spider Face/Eyes -->
+                        <circle cx="10" cy="10" r="1.2" class="spider-eye" />
+                        <circle cx="14" cy="10" r="1.2" class="spider-eye" />
+                        
+                        <!-- Spider Antenna -->
+                        <path d="M10,7 Q12,4 14,7" class="spider-antenna" stroke-width="0.8" fill="none" />
+                        
+                        <!-- Spider Legs - Left side -->
+                        <path d="M6,10 Q4,8 2,9" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M6,12 Q3,12 1,13" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M6,14 Q4,16 2,17" class="spider-leg" stroke-width="0.8" fill="none" />
+                        
+                        <!-- Spider Legs - Right side -->
+                        <path d="M18,10 Q20,8 22,9" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M18,12 Q21,12 23,13" class="spider-leg" stroke-width="0.8" fill="none" />
+                        <path d="M18,14 Q20,16 22,17" class="spider-leg" stroke-width="0.8" fill="none" />
+                    </svg>
+                </div>
+                <span class="text-xl font-bold text-white">WebScrapeWizard</span>
+            </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-6">
+            <a href="#services" class="nav-link flex items-center">
+                <i class="fas fa-code mr-2 text-primary-400"></i>
+                <span>Services</span>
+            </a>
+            <a href="#portfolio" class="nav-link flex items-center">
+                <i class="fas fa-briefcase mr-2 text-primary-400"></i>
+                <span>Portfolio</span>
+            </a>
+            <a href="#process" class="nav-link flex items-center">
+                <i class="fas fa-cogs mr-2 text-primary-400"></i>
+                <span>Process</span>
+            </a>
+            <a href="#datasets" class="nav-link flex items-center">
+                <i class="fas fa-database mr-2 text-primary-400"></i>
+                <span>Datasets</span>
+            </a>
+            <a href="#contact" class="ml-4 py-2 px-4 bg-primary-600 hover:bg-primary-700 text-white rounded-full transition-colors flex items-center">
+                <i class="fas fa-envelope mr-2"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+        
+        <!-- Theme Toggle and Mobile Menu Button -->
+        <div class="flex items-center space-x-4">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="p-2 rounded-full text-white hover:text-primary-400 transition-colors">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:inline-block"></i>
+            </button>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden p-2 rounded-full text-white hover:text-primary-400 transition-colors">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="lg:hidden mt-4 hidden">
+        <nav class="flex flex-col space-y-4 p-4 bg-white dark:bg-secondary-800 rounded-lg shadow-lg">
+            <a href="#services" class="mobile-nav-link flex items-center">
+                <i class="fas fa-code mr-3 text-primary-500 w-5"></i>
+                <span>Services</span>
+            </a>
+            <a href="#portfolio" class="mobile-nav-link flex items-center">
+                <i class="fas fa-briefcase mr-3 text-primary-500 w-5"></i>
+                <span>Portfolio</span>
+            </a>
+            <a href="#process" class="mobile-nav-link flex items-center">
+                <i class="fas fa-cogs mr-3 text-primary-500 w-5"></i>
+                <span>Process</span>
+            </a>
+            <a href="#datasets" class="mobile-nav-link flex items-center">
+                <i class="fas fa-database mr-3 text-primary-500 w-5"></i>
+                <span>Datasets</span>
+            </a>
+            <a href="#testimonials" class="mobile-nav-link flex items-center">
+                <i class="fas fa-star mr-3 text-primary-500 w-5"></i>
+                <span>Testimonials</span>
+            </a>
+            <a href="#contact" class="mt-2 py-2 px-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors flex items-center justify-center">
+                <i class="fas fa-envelope mr-2"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+    </div>
+</div>

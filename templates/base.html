@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Anas - Web Scraping Specialist{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS library for scroll animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'custom': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'custom-dark': '0 4px 20px rgba(0, 0, 0, 0.25)',
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Block for page-specific styles -->
+    {% block styles %}{% endblock %}
+</head>
+
+<body class="font-sans bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white transition-colors duration-300">
+    <!-- Custom Spider Bot Cursor (added and managed via JavaScript) -->
+    <div id="custom-cursor" class="fixed pointer-events-none z-50 opacity-0 transition-opacity duration-300">
+        <!-- Main container will be populated by JavaScript with our spider bot cursor -->
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full py-4 z-40 bg-[#01121F]/50 backdrop-blur-sm transition-all duration-300 dark:bg-transparent">
+        {% include 'components/header.html' %}
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 py-16">
+        {% include 'components/footer.html' %}
+    </footer>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div id="flash-messages" class="fixed bottom-4 right-4 z-50">
+                {% for category, message in messages %}
+                    <div class="flash-message bg-white dark:bg-secondary-800 border-l-4 {% if category == 'success' %}border-green-500{% elif category == 'error' %}border-red-500{% else %}border-blue-500{% endif %} p-4 mb-3 rounded shadow-lg">
+                        <div class="flex items-center">
+                            {% if category == 'success' %}
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            {% elif category == 'error' %}
+                                <i class="fas fa-exclamation-circle text-red-500 mr-3"></i>
+                            {% else %}
+                                <i class="fas fa-info-circle text-blue-500 mr-3"></i>
+                            {% endif %}
+                            <p class="text-secondary-700 dark:text-secondary-200">{{ message }}</p>
+                            <button onclick="this.parentElement.parentElement.remove()" class="ml-auto">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- AOS initialization -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Testimonial Carousel -->
+    <script src="{{ url_for('static', filename='js/testimonial-carousel.js') }}"></script>
+    
+    <!-- Block for page-specific scripts -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>
